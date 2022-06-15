@@ -13,5 +13,6 @@ struct TabView_SampleApp: App {
         WindowGroup {
             ContentView()
         }
+        .windowToolbarStyle(.unifiedCompact(showsTitle: false))
     }
 }

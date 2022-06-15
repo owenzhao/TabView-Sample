@@ -8,20 +8,14 @@
 import SwiftUI
 
 struct TabItemView: View {
-    @State var id:Int
-    @State private var title = ""
+    @Binding var tabContent:TabContent
     
     var body: some View {
         HStack {
-            Text("Tab \(id)")
-                .onAppear(perform: {
-                    print("I am tab \(id)")
-                })
-                .onDisappear {
-                    print("Tab \(id) am quit!")
-            }
+            Text("Tab \(tabContent.id)")
             
-            TextField("Title", text: $title)
+            TextField("Title", text: $tabContent.title)
+                .frame(minWidth: 300)
         }
         .tabItem {
             Text(getTabName())
@@ -30,16 +24,21 @@ struct TabItemView: View {
     }
     
     private func getTabName() -> String {
-        if title.isEmpty {
-            return String(id)
+        if tabContent.title.isEmpty {
+            return String(tabContent.id)
         }
         
-        return title
+        return tabContent.title
     }
 }
 
 struct TabItemView_Previews: PreviewProvider {
     static var previews: some View {
-        TabItemView(id: 1)
+        TabItemView(tabContent: .constant(TabContent(id: 1, title: "")))
     }
+}
+
+struct TabContent:Identifiable, Equatable, Hashable {
+    var id = 0
+    var title = ""
 }
