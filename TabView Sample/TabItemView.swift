@@ -9,12 +9,32 @@ import SwiftUI
 
 struct TabItemView: View {
     @State var id:Int
+    @State private var title = ""
     
     var body: some View {
-        Text("Tab \(id)")
-            .tabItem {
-                Text(String(id))
+        HStack {
+            Text("Tab \(id)")
+                .onAppear(perform: {
+                    print("I am tab \(id)")
+                })
+                .onDisappear {
+                    print("Tab \(id) am quit!")
             }
+            
+            TextField("Title", text: $title)
+        }
+        .tabItem {
+            Text(getTabName())
+        }
+        .padding()
+    }
+    
+    private func getTabName() -> String {
+        if title.isEmpty {
+            return String(id)
+        }
+        
+        return title
     }
 }
 
