@@ -8,37 +8,23 @@
 import SwiftUI
 
 struct TabItemView: View {
-    @Binding var tabContent:TabContent
+//    @Binding var tabContent:TabContent
+    @Binding var tabItem:TabItem
     
     var body: some View {
         HStack {
-            Text("Tab \(tabContent.id)")
-            
-            TextField("Title", text: $tabContent.title)
+            TextField("Title", text: $tabItem.title)
                 .frame(minWidth: 300)
         }
         .tabItem {
-            Text(getTabName())
+            Text(tabItem.title)
         }
         .padding()
-    }
-    
-    private func getTabName() -> String {
-        if tabContent.title.isEmpty {
-            return String(tabContent.id)
-        }
-        
-        return tabContent.title
     }
 }
 
 struct TabItemView_Previews: PreviewProvider {
     static var previews: some View {
-        TabItemView(tabContent: .constant(TabContent(id: 1, title: "")))
+        TabItemView(tabItem: .constant(TabItem(style: .main, title: "Main", url: URL(string: "https://parussoft.com")!)))
     }
-}
-
-struct TabContent:Identifiable, Equatable, Hashable {
-    var id = 0
-    var title = ""
 }

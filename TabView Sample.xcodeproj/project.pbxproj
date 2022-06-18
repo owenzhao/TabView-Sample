@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC372A57285DF6400076CC5A /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC372A56285DF6400076CC5A /* WebView.swift */; };
+		DC372A59285DF65D0076CC5A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC372A58285DF65D0076CC5A /* Model.swift */; };
+		DC372A5B285DFBC80076CC5A /* TabContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC372A5A285DFBC80076CC5A /* TabContentView.swift */; };
 		DC37E0B82859494C00F9272F /* TabView_SampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC37E0B72859494C00F9272F /* TabView_SampleApp.swift */; };
 		DC37E0BA2859494C00F9272F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC37E0B92859494C00F9272F /* ContentView.swift */; };
 		DC37E0BC2859494D00F9272F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC37E0BB2859494D00F9272F /* Assets.xcassets */; };
@@ -15,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC372A56285DF6400076CC5A /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		DC372A58285DF65D0076CC5A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		DC372A5A285DFBC80076CC5A /* TabContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContentView.swift; sourceTree = "<group>"; };
 		DC37E0B42859494C00F9272F /* TabView Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TabView Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC37E0B72859494C00F9272F /* TabView_SampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView_SampleApp.swift; sourceTree = "<group>"; };
 		DC37E0B92859494C00F9272F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,7 +62,10 @@
 			children = (
 				DC37E0B72859494C00F9272F /* TabView_SampleApp.swift */,
 				DC37E0B92859494C00F9272F /* ContentView.swift */,
+				DC372A5A285DFBC80076CC5A /* TabContentView.swift */,
 				DC37E0C6285949ED00F9272F /* TabItemView.swift */,
+				DC372A56285DF6400076CC5A /* WebView.swift */,
+				DC372A58285DF65D0076CC5A /* Model.swift */,
 				DC37E0BB2859494D00F9272F /* Assets.xcassets */,
 				DC37E0C02859494D00F9272F /* TabView_Sample.entitlements */,
 				DC37E0BD2859494D00F9272F /* Preview Content */,
@@ -142,8 +151,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC372A59285DF65D0076CC5A /* Model.swift in Sources */,
 				DC37E0C7285949ED00F9272F /* TabItemView.swift in Sources */,
+				DC372A57285DF6400076CC5A /* WebView.swift in Sources */,
 				DC37E0BA2859494C00F9272F /* ContentView.swift in Sources */,
+				DC372A5B285DFBC80076CC5A /* TabContentView.swift in Sources */,
 				DC37E0B82859494C00F9272F /* TabView_SampleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

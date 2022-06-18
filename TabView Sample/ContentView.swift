@@ -8,36 +8,37 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var tabContents:[TabContent] = {
-        (1..<4).map { TabContent(id: $0) }
-    }()
+    @State private var tabItems:[TabItem] = [
+        TabItem(style: .main, title: "Main", url: URL(string: "https://parussoft.com")!),
+        TabItem(style: .web, title: "Trello", url: URL(string: "https://trello.com")!),
+        TabItem(style: .web, title: "Google", url: URL(string: "https://google.com")!)
+    ]
     
-    @State private var currentTabContent = TabContent(id: 1)
+    @State private var currentTabItem = TabItem(style: .main, title: "Main", url: URL(string: "https://parussoft.com")!)
     
     var body: some View {
-        ForEach($tabContents) { $tabContent in
-            if currentTabContent.id == tabContent.id {
-                TabItemView(tabContent: $tabContent)
+        ForEach($tabItems) { $tabItem in
+            if currentTabItem.style == tabItem.style && currentTabItem.style == .main {
+                TabItemView(tabItem: $tabItem)
+            }
+            
+            if currentTabItem.style == .web && currentTabItem.url == tabItem.url {
+                WebView(url: tabItem.url)
             }
         }
         .toolbar {
             HStack {
-                Picker(String(currentTabContent.title), selection: $currentTabContent) {
-                    ForEach(tabContents) { tabContent in
-                        Text(tabContent.title.isEmpty ? String(tabContent.id) : tabContent.title).tag(tabContent)
+                Picker(String(currentTabItem.title), selection: $currentTabItem) {
+                    ForEach(tabItems) { tabItem in
+                        Text(tabItem.title).tag(tabItem)
                     }
                 }
                 .pickerStyle(.segmented)
-                .onChange(of: currentTabContent) { newValue in
-                    if let index = tabContents.map({$0.id}).firstIndex(of: newValue.id) {
-                        tabContents[index] = newValue
-                    }
-                }
                 
                 Spacer()
             }
         }
-        .frame(width: 400, height: 50)
+        .frame(minWidth: 800, minHeight: 600)
     }
 }
 
@@ -46,3 +47,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
